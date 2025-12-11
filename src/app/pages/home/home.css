@@ -1,0 +1,91 @@
+/* ======================================= */
+/* 1. SEÇÃO DE BOAS-VINDAS (TOPO)          */
+/* ======================================= */
+
+.home-header {
+    /* Espaçamento generoso para dar a sensação 'clean' */
+    padding: 40px 0; 
+    text-align: center;
+    background-color: var(--fundo-secundario); /* Bege Claro */
+    border-bottom: 1px solid var(--borda-clara);
+}
+
+.home-header h1 {
+    font-size: 2.5rem;
+    color: var(--texto-principal);
+    margin-bottom: 10px;
+}
+
+.home-header p {
+    font-size: 1.1rem;
+    color: var(--texto-principal);
+    opacity: 0.8;
+}
+
+/* Link de ação dentro do header (se houver) */
+.home-header a {
+    color: var(--marrom-primario);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.home-header a:hover {
+    color: var(--bronze-secundario);
+    text-decoration: underline;
+}
+
+/* ======================================= */
+/* 2. SEÇÃO DE ATIVOS EM DESTAQUE          */
+/* ======================================= */
+
+.featured-section {
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto; /* Centraliza a seção no meio da tela */
+}
+
+.featured-section h2 {
+    font-size: 1.8rem;
+    color: var(--texto-principal);
+    margin-bottom: 25px;
+    text-align: center;
+    border-bottom: 2px solid var(--marrom-primario);
+    display: inline-block; /* Ajusta a largura da borda ao conteúdo */
+    padding-bottom: 5px;
+}
+
+/* Container de Ativos (Grid para exibição limpa) */
+.ativos-grid {
+    display: grid;
+    /* 4 colunas em telas grandes */
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 25px; /* Espaçamento entre os cards */
+    margin-top: 30px;
+}
+
+/* Responsividade (Ajuste para telas menores) */
+@media (max-width: 992px) {
+    .ativos-grid {
+        /* 2 colunas em tablets */
+        grid-template-columns: repeat(2, 1fr); 
+    }
+}
+
+@media (max-width: 576px) {
+    .ativos-grid {
+        /* 1 coluna em celulares */
+        grid-template-columns: 1fr; 
+    }
+    .home-header h1 {
+        font-size: 2rem;
+    }
+}
+
+/* Estilo para a mensagem de carregamento ou erro */
+.loading-message, .error-message {
+    text-align: center;
+    padding: 30px;
+    color: var(--texto-principal);
+    font-style: italic;
+}

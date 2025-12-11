@@ -1,1 +1,25 @@
-/* You can add global styles to this file, and also import other style files */
+/* src/styles.css (ou src/app/app.css) */
+
+/* 1. VARIÁVEIS CSS */
+:root {
+    --marrom-primario: #A0522D; 
+    --fundo-principal: #FAFAFA;
+    /* ... (outras cores) ... */
+}
+
+/* 2. RESET E ESTILO GLOBAL */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+}
+body {
+    background-color: var(--fundo-principal);
+    /* ... (estilos de fonte e linha) ... */
+}
+
+/* 3. ESTILOS REUTILIZÁVEIS */
+.btn-primary {
+    background-color: var(--marrom-primario);
+    /* ... (resto do CSS do botão) ... */
+}
