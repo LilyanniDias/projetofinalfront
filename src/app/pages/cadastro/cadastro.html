@@ -1,88 +1,89 @@
-<div class="cadastro-container">
-    <div class="card cadastro-card">
-        
-        <h1 class="card-title">Crie Sua Conta</h1>
-        <p class="card-subtitle">Descubra o poder dos ativos brasileiros para sua pele.</p>
+<div class="login-page-wrapper"> 
+        <div class="login-card"> 
+                
+        <h1 class="brand-title">PeleNativa</h1> 
+        <h2 class="form-title">Crie Sua Conta</h2>
+        <p class="subtitle">Descubra o poder dos ativos brasileiros para sua pele.</p>
 
-        <form [formGroup]="cadastroForm" (ngSubmit)="onSubmit()" class="cadastro-form">
+        <form [formGroup]="cadastroForm" (ngSubmit)="onSubmit()" class="cadastro-form">
 
-            <div class="form-group">
-                <label for="nome">Nome Completo</label>
-                <input 
-                    id="nome" 
-                    type="text" 
-                    formControlName="nome" 
-                    placeholder="Seu nome e sobrenome"
-                    [class.is-invalid]="cadastroForm.get('nome')?.invalid && cadastroForm.get('nome')?.touched"
-                >
-                <div *ngIf="cadastroForm.get('nome')?.invalid && cadastroForm.get('nome')?.touched" class="error-message">
-                    <span *ngIf="cadastroForm.get('nome')?.errors?.['required']">O nome é obrigatório.</span>
-                    <span *ngIf="cadastroForm.get('nome')?.errors?.['minlength']">Mínimo de 3 caracteres.</span>
-                </div>
-            </div>
+            <div class="form-group">
+                <label for="nome">Nome Completo</label>
+                <input 
+                    id="nome" 
+                    type="text" 
+                    formControlName="nome" 
+                    placeholder="Seu nome e sobrenome"
+                    [class.is-invalid]="cadastroForm.get('nome')?.invalid && cadastroForm.get('nome')?.touched"
+                >
+                <div *ngIf="cadastroForm.get('nome')?.invalid && cadastroForm.get('nome')?.touched" class="error-message">
+                    <span *ngIf="cadastroForm.get('nome')?.errors?.['required']">O nome é obrigatório.</span>
+                    <span *ngIf="cadastroForm.get('nome')?.errors?.['minlength']">Mínimo de 3 caracteres.</span>
+                </div>
+            </div>
 
-            <div class="form-group">
-                <label for="email">E-mail</label>
-                <input 
-                    id="email" 
-                    type="email" 
-                    formControlName="email" 
-                    placeholder="exemplo@dominio.com"
-                    [class.is-invalid]="cadastroForm.get('email')?.invalid && cadastroForm.get('email')?.touched"
-                >
-                <div *ngIf="cadastroForm.get('email')?.invalid && cadastroForm.get('email')?.touched" class="error-message">
-                    <span *ngIf="cadastroForm.get('email')?.errors?.['required']">O e-mail é obrigatório.</span>
-                    <span *ngIf="cadastroForm.get('email')?.errors?.['email']">O formato do e-mail é inválido.</span>
-                </div>
-            </div>
+            <div class="form-group">
+                <label for="email">E-mail</label>
+                <input 
+                    id="email" 
+                    type="email" 
+                    formControlName="email" 
+                    placeholder="exemplo@dominio.com"
+                    [class.is-invalid]="cadastroForm.get('email')?.invalid && cadastroForm.get('email')?.touched"
+                >
+                <div *ngIf="cadastroForm.get('email')?.invalid && cadastroForm.get('email')?.touched" class="error-message">
+                    <span *ngIf="cadastroForm.get('email')?.errors?.['required']">O e-mail é obrigatório.</span>
+                    <span *ngIf="cadastroForm.get('email')?.errors?.['email']">O formato do e-mail é inválido.</span>
+                </div>
+            </div>
 
-            <div class="form-group">
-                <label for="senha">Senha</label>
-                <input 
-                    id="senha" 
-                    type="password" 
-                    formControlName="senha" 
-                    placeholder="Mínimo 6 caracteres"
-                    [class.is-invalid]="cadastroForm.get('senha')?.invalid && cadastroForm.get('senha')?.touched"
-                >
-                <div *ngIf="cadastroForm.get('senha')?.invalid && cadastroForm.get('senha')?.touched" class="error-message">
-                    <span *ngIf="cadastroForm.get('senha')?.errors?.['required']">A senha é obrigatória.</span>
-                    <span *ngIf="cadastroForm.get('senha')?.errors?.['minlength']">A senha deve ter no mínimo 6 caracteres.</span>
-                </div>
-            </div>
+            <div class="form-group">
+                <label for="senha">Senha</label>
+                <input 
+                    id="senha" 
+                    type="password" 
+                    formControlName="senha" 
+                    placeholder="Mínimo 6 caracteres"
+                    [class.is-invalid]="cadastroForm.get('senha')?.invalid && cadastroForm.get('senha')?.touched"
+                >
+                <div *ngIf="cadastroForm.get('senha')?.invalid && cadastroForm.get('senha')?.touched" class="error-message">
+                    <span *ngIf="cadastroForm.get('senha')?.errors?.['required']">A senha é obrigatória.</span>
+                    <span *ngIf="cadastroForm.get('senha')?.errors?.['minlength']">A senha deve ter no mínimo 6 caracteres.</span>
+                </div>
+            </div>
 
-            <div class="form-group">
-                <label for="confirmarSenha">Confirmar Senha</label>
-                <input 
-                    id="confirmarSenha" 
-                    type="password" 
-                    formControlName="confirmarSenha" 
-                    placeholder="Repita a senha"
-                    [class.is-invalid]="cadastroForm.hasError('passwordMismatch') && cadastroForm.get('confirmarSenha')?.touched"
-                >
-                <div *ngIf="cadastroForm.hasError('passwordMismatch') && cadastroForm.get('confirmarSenha')?.touched" class="error-message">
-                    <span>As senhas não coincidem.</span>
-                </div>
-                <div *ngIf="cadastroForm.get('confirmarSenha')?.errors?.['required'] && cadastroForm.get('confirmarSenha')?.touched" class="error-message">
-                    <span>Confirmação de senha é obrigatória.</span>
-                </div>
-            </div>
+            <div class="form-group">
+                <label for="confirmarSenha">Confirmar Senha</label>
+                <input 
+                    id="confirmarSenha" 
+                    type="password" 
+                    formControlName="confirmarSenha" 
+                    placeholder="Repita a senha"
+                    [class.is-invalid]="cadastroForm.hasError('passwordMismatch') && cadastroForm.get('confirmarSenha')?.touched"
+                >
+                <div *ngIf="cadastroForm.hasError('passwordMismatch') && cadastroForm.get('confirmarSenha')?.touched" class="error-message">
+                    <span>As senhas não coincidem.</span>
+                </div>
+                <div *ngIf="cadastroForm.get('confirmarSenha')?.errors?.['required'] && cadastroForm.get('confirmarSenha')?.touched" class="error-message">
+                    <span>Confirmação de senha é obrigatória.</span>
+                </div>
+            </div>
 
-            <div *ngIf="errorMessage" class="alert-error">{{ errorMessage }}</div>
-            
-            <button 
-                type="submit" 
-                class="btn-primary" 
-                [disabled]="cadastroForm.invalid || isLoading"
-            >
-                {{ isLoading ? 'Cadastrando...' : 'Criar Conta' }}
-            </button>
-        </form>
+            <div *ngIf="errorMessage" class="alert-error">{{ errorMessage }}</div>
+            
+            <button 
+                type="submit" 
+                class="btn-primary btn-full-width" 
+                [disabled]="cadastroForm.invalid || isLoading"
+            >
+                {{ isLoading ? 'Cadastrando...' : 'Criar Conta' }}
+            </button>
+        </form>
 
-        <p class="login-link">
-            Já tem uma conta? 
-            <a [routerLink]="['/login']">Faça Login</a>
-        </p>
+        <p class="login-link">
+            Já tem uma conta? 
+            <a [routerLink]="['/login']" class="link-login">Faça Login</a>
+        </p>
 
-    </div>
+    </div>
 </div>

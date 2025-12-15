@@ -1,0 +1,151 @@
+/* Onde: src/app/pages/cadastro/cadastro.component.css */
+
+/* 1. CONTAINER PRINCIPAL E CENTRALIZAÇÃO */
+.login-page-wrapper {
+    /* Centraliza o formulário na tela e dá um fundo claro */
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    min-height: 100vh; 
+    background-color: #F8F7F3; /* Fundo claro e suave */
+    padding: 20px;
+}
+
+/* 2. CARD/BLOCO DE CADASTRO */
+.login-card {
+    /* O card branco que contém o formulário */
+    background-color: #FFFFFF;
+    padding: 45px 55px;
+    border-radius: 8px;
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.1); 
+    width: 100%;
+    max-width: 440px; /* Largura para consistência com o Login */
+    text-align: center;
+}
+
+/* 3. TÍTULOS E SUBTÍTULOS */
+.brand-title {
+    /* Título da marca, em destaque */
+    font-size: 1.8rem;
+    color: var(--verde-escuro, #4D7472); 
+    font-weight: 700;
+    margin-bottom: 25px;
+}
+
+.form-title {
+    /* Título principal do formulário */
+    font-size: 2.2rem;
+    font-weight: 300;
+    color: var(--cor-texto-principal, #333);
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+.subtitle {
+    /* Subtítulo abaixo do título principal */
+    font-size: 0.95rem;
+    color: var(--texto-secundario, #666);
+    margin-bottom: 30px;
+    text-align: left;
+}
+
+
+/* 4. ESTILOS DO FORMULÁRIO */
+.form-group {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+    font-size: 0.9rem;
+    color: var(--cor-texto-principal, #333);
+}
+
+/* Estilo dos campos de input (Nome, Email, Senha) */
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+    box-sizing: border-box; 
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input:focus {
+    border-color: var(--verde-primario, #5F8C8A);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(95, 140, 138, 0.2);
+}
+
+/* 5. ESTILOS DE VALIDAÇÃO E ERRO */
+.is-invalid {
+    border-color: #e53e3e !important; 
+}
+
+.error-message {
+    color: #e53e3e;
+    font-size: 0.8rem;
+    margin-top: 5px;
+}
+
+.alert-error { 
+    /* Estilo para a mensagem de erro da API (errorMessage) */
+    background-color: #fcebeb; 
+    color: #e53e3e;
+    padding: 10px 15px;
+    border: 1px solid #e53e3e;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+/* 6. BOTÃO DE SUBMISSÃO */
+.btn-primary { 
+    /* Cor de fundo baseada na variável de destaque */
+    background-color: var(--verde-primario, #5F8C8A);
+    color: white;
+    border: none;
+    transition: background-color 0.2s;
+}
+
+.btn-full-width {
+    width: 100%;
+    margin-top: 25px;
+    padding: 12px 25px;
+    border-radius: 4px;
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+
+.btn-full-width:hover:not([disabled]) {
+    background-color: var(--verde-escuro, #4D7472);
+}
+
+.btn-full-width[disabled] {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+/* 7. LINK PARA LOGIN */
+.login-link {
+    margin-top: 25px;
+    font-size: 0.95rem;
+    color: var(--texto-secundario, #666);
+}
+
+.link-login {
+    color: var(--verde-primario, #5F8C8A);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.link-login:hover {
+    text-decoration: underline;
+}

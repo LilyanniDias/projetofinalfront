@@ -7,7 +7,7 @@ import { RouterOutlet } from '@angular/router'; // Necessário para o roteamento
   imports: [RouterOutlet], // Inclui o módulo de roteamento
   template: `
     <router-outlet></router-outlet>
-    <h1>Olá, Angular está funcionando!</h1> 
+    <h1></h1> 
   `,
   styleUrls: ['./app.css']
 })

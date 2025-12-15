@@ -64,7 +64,7 @@ export class AuthService {
 
         // Mock de resposta para fins de compilação:
         const mockResponse: AuthResponse = {
-            user: { id: 1, nome: 'Ana Teste', email: credentials.email },
+            user: { id: 1, nome: 'Ana teste', email: credentials.email },
             token: 'mock-jwt-token-12345'
         };
 

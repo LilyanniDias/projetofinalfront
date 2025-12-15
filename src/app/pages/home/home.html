@@ -1,41 +1,55 @@
 <div class="home-page">
     
     <div class="auth-controls">
-        <div *ngIf="isLoggedIn" class="user-actions">
-            <button (click)="onLogout()" class="btn-clean">Sair da Conta</button>
-        </div>
-        
-        <div *ngIf="!isLoggedIn" class="guest-actions">
-            <a [routerLink]="['/login']" class="btn-clean">Entrar</a>
-            <a [routerLink]="['/cadastro']" class="btn-primary-ghost">Criar Conta</a>
-        </div>
-    </div>
-    
-        <header class="hero-section">
-        
-        <h1 *ngIf="isLoggedIn; else guestMessage">
-            Olá, {{ userName }}! Sua rotina começa aqui.
-        </h1>
-        <ng-template #guestMessage>
-            <h1>Descubra o Poder dos Ativos Nacionais</h1>
-        </ng-template>
-
-        <p class="tagline">
-            O PeleNativa ajuda você a montar a rotina de skincare perfeita com foco em ingredientes do Brasil.
-        </p>
-
-        <div class="action-buttons">
-            <a [routerLink]="['/ativos']" class="btn btn-primary large">Explorar Ativos</a>
-            
-            <a *ngIf="isLoggedIn" [routerLink]="['/minhas-rotinas']" class="btn btn-secondary large">Minhas Rotinas</a>
-            
-            <a *ngIf="!isLoggedIn" [routerLink]="['/cadastro']" class="btn btn-secondary large">Crie sua Conta Grátis</a>
+        <div *ngIf="isLoggedIn" class="user-actions">
+            <button (click)="onLogout()" class="btn-clean">Sair da Conta</button>
         </div>
-    </header>
+        
+        <div *ngIf="!isLoggedIn" class="guest-actions">
+            <a [routerLink]="['/login']" class="btn-clean">Entrar</a>
+            <a [routerLink]="['/cadastro']" class="btn-primary-ghost">Criar Conta</a>
+        </div>
+    </div>
+    
+    
+    <header class="hero-section">
+        
+        <div class="hero-content-wrapper"> 
+            
+            <div class="hero-text-block"> 
+                
+                <span class="welcome-tag">DESCUBRA A BELEZA NATURAL DO BRASIL</span>
+                
+                <h1 *ngIf="isLoggedIn; else guestMessage">
+                    Olá, {{ userName }}! Sua rotina começa aqui.
+                </h1>
+                <ng-template #guestMessage>
+                    <h1>Descubra o Poder dos Ativos Nacionais</h1>
+                </ng-template>
 
-    <hr>
+                <p class="tagline">
+                    O PeleNativa ajuda você a montar a rotina de skincare perfeita com foco em ingredientes do Brasil.
+                </p>
 
-    <section class="destaques-section">
+                <div class="action-buttons">
+                    <a [routerLink]="['/ativos']" class="btn btn-primary large">Explorar Ativos</a>
+            
+                    <a *ngIf="isLoggedIn" [routerLink]="['/minhas-rotinas']" class="btn btn-secondary large">Minhas Rotinas</a>
+                </div>
+            </div>
+            
+            <div class="hero-image-block">
+                <img src="assets/images/home/pelenativa.jpeg"
+                     alt="Mulher relaxando com tratamento de pele." 
+                     class="responsive-hero-image">
+            </div>
+
+        </div> 
+    </header>
+    <hr>
+
+        <section class="destaques-section">
+        <span class="section-tag">RECOMENDAÇÕES</span>
         <h2>Ativos Mais Populares</h2>
         
         <div *ngIf="isLoading" class="loading-message">
@@ -54,7 +68,7 @@
         </div>
         
     </section>
-
+    
     <div class="full-list-link">
         <a [routerLink]="['/ativos']">Ver a lista completa de ativos &rarr;</a>
     </div>

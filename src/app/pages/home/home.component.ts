@@ -38,10 +38,10 @@ export class HomeComponent implements OnInit {
       this.isLoggedIn = loggedIn;
     });
 
-    this.authService.currentUser$.subscribe(user => {
-      if (user) {
+    this.authService.currentUser$.subscribe(User => {
+      if (User) {
         // Pega apenas o primeiro nome
-        this.userName = user.nome.split(' ')[0]; 
+        this.userName = User.nome.split(' ')[0]; 
       } else {
         this.userName = 'Visitante';
       }

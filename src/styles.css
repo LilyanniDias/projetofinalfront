@@ -1,27 +1,39 @@
-/* src/styles.css (ou src/app/app.css) */
+/* Onde: src/styles.css (ou src/styles.scss) */
 
-/* 1. VARIÁVEIS CSS */
 :root {
-    --marrom-primario: rgb(194, 149, 128);
-    --fundo-principal: #FAFAFA;
-    /* ... (outras cores) ... */
+    /* Cores de Destaque (Verde-Azulado, inspirado no Beautyness) */
+    --verde-primario: #5F8C8A;    /* Cor principal para botões, links, etc. */
+    --verde-escuro: #4D7472;      /* Cor de hover e títulos importantes */
+    --verde-claro-fundo: #E5F3F2; /* Fundo muito suave, se necessário */
+
+    /* Cores de Fundo */
+    --cor-fundo-principal: #F8F7F3; /* Fundo claro e suave (cor do Mailchimp/Beautyness) */
+    --cor-fundo-card: #FFFFFF;      /* Fundo do card de login/cadastro */
+
+    /* Cores de Texto */
+    --cor-texto-principal: #333333;
+    --texto-secundario: #666666;
+
+    /* Cores de Estado */
+    --cor-erro: #e53e3e; /* Vermelho para mensagens de erro */
 }
 
-/* 2. RESET E ESTILO GLOBAL */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box; 
-}
-body {
-    background-color: var(--fundo-principal);
-    background-color: rgb(114, 61, 31);
-    /* ... (estilos de fonte e linha) ... */
-    color: rgb(194, 149, 128);
+/* Estilos de Botão Base (para os botões btn-clean, etc.) */
+.btn-clean {
+    background: none;
+    border: none;
+    color: var(--verde-escuro);
+    font-weight: 600;
+    cursor: pointer;
+    padding: 8px 10px;
 }
 
-/* 3. ESTILOS REUTILIZÁVEIS */
-.btn-primary {
-    background-color: var(--marrom-primario);
-    /* ... (resto do CSS do botão) ... */
+.btn-primary-ghost {
+    background: none;
+    border: 1px solid var(--verde-primario);
+    color: var(--verde-primario);
+    padding: 8px 15px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 600;
 }

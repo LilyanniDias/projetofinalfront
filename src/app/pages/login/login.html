@@ -1,40 +1,50 @@
-<div class="login-container">
-    <h2>Acesse a PeleNativa</h2>
+<div class="login-page-wrapper"> 
     
-    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-        <div class="form-group">
-            <label for="email">E-mail</label>
-            <input id="email" type="email" formControlName="email" 
-                   [class.is-invalid]="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">
-            
-            <div *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched" class="error-message">
-                <span *ngIf="loginForm.get('email')?.errors?.['required']">O e-mail é obrigatório.</span>
-                <span *ngIf="loginForm.get('email')?.errors?.['email']">E-mail inválido.</span>
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label for="senha">Senha</label>
-            <input id="senha" type="password" formControlName="senha"
-                   [class.is-invalid]="loginForm.get('senha')?.invalid && loginForm.get('senha')?.touched">
-            
-            <div *ngIf="loginForm.get('senha')?.invalid && loginForm.get('senha')?.touched" class="error-message">
-                <span *ngIf="loginForm.get('senha')?.errors?.['required']">A senha é obrigatória.</span>
-                <span *ngIf="loginForm.get('senha')?.errors?.['minlength']">A senha deve ter no mínimo 6 caracteres.</span>
-            </div>
-        </div>
-
-        <div *ngIf="errorMessage" class="api-error">
-            {{ errorMessage }}
-        </div>
+    <div class="login-card"> 
         
-        <button type="submit" [disabled]="loginForm.invalid || isLoading">
-            <span *ngIf="!isLoading">Entrar</span>
-            <span *ngIf="isLoading">Carregando...</span>
-        </button>
-    </form>
+        <h1 class="brand-title">PeleNativa</h1> 
+        <h2 class="form-title">Acesse sua conta</h2>
+        
+        <p class="subtitle">
+            Seja bem-vindo(a) de volta. <a [routerLink]="['/cadastro']" class="link-cadastro">Crie uma conta.</a>
+        </p>
 
-    <p class="link-cadastro">
-        Não tem uma conta? <a [routerLink]="['/cadastro']">Cadastre-se agora!</a>
-    </p>
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            
+            <div class="form-group">
+                <label for="email">E-mail</label>
+                <input id="email" type="email" formControlName="email" 
+                       placeholder="exemplo@dominio.com"
+                       [class.is-invalid]="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">
+            
+            <div *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched" class="error-message">
+                <span *ngIf="loginForm.get('email')?.errors?.['required']">O e-mail é obrigatório.</span>
+                <span *ngIf="loginForm.get('email')?.errors?.['email']">E-mail inválido.</span>
+            </div>
+            </div>
+
+            <div class="form-group">
+                <label for="senha">Senha</label>
+                <input id="senha" type="password" formControlName="senha"
+                       placeholder="Mínimo 6 caracteres"
+                       [class.is-invalid]="loginForm.get('senha')?.invalid && loginForm.get('senha')?.touched">
+            
+            <div *ngIf="loginForm.get('senha')?.invalid && loginForm.get('senha')?.touched" class="error-message">
+                <span *ngIf="loginForm.get('senha')?.errors?.['required']">A senha é obrigatória.</span>
+                <span *ngIf="loginForm.get('senha')?.errors?.['minlength']">A senha deve ter no mínimo 6 caracteres.</span>
+            </div>
+            </div>
+
+                        <div *ngIf="errorMessage" class="api-error">
+                {{ errorMessage }}
+            </div>
+            
+                        <button type="submit" class="btn btn-primary btn-full-width" [disabled]="loginForm.invalid || isLoading">
+                <span *ngIf="!isLoading">Entrar</span>
+                <span *ngIf="isLoading">Carregando...</span>
+            </button>
+        </form>
+        
+            </div>
+
 </div>

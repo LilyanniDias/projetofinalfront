@@ -1,295 +1,117 @@
-/* ======================================= */
-/* 1. SEÇÃO DE BOAS-VINDAS (TOPO)          */
-/* ======================================= */
+/* ================================================= */
+/* ESTILO DA HERO SECTION (Layout de Duas Colunas) */
+/* ================================================= */
 
-.home-header {
-    /* Espaçamento generoso para dar a sensação 'clean' */
-    padding: 40px 0; 
-    text-align: center;
-    background-color: var(--fundo-secundario); /* Bege Claro */
-    border-bottom: 1px solid var(--borda-clara);
+.hero-section {
+    background-color: var(--cor-fundo-principal); 
+    padding: 80px 40px; 
 }
 
-.home-header h1 {
-    font-size: 2.5rem;
-    color: var(--texto-principal);
+/* LAYOUT DE DUAS COLUNAS */
+.hero-content-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+    gap: 60px; 
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Coluna de Texto (Esquerda) */
+.hero-text-block {
+    flex: 1; 
+}
+
+.welcome-tag {
+    color: var(--verde-primario); 
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    display: block;
     margin-bottom: 10px;
 }
 
-.home-header p {
+.hero-text-block h1 {
+    font-size: 3.5rem; 
+    line-height: 1.1;
+    margin-bottom: 20px;
+    font-weight: 300; /* Tipografia mais leve e elegante */
+}
+
+.hero-text-block .tagline {
+    color: var(--texto-secundario);
     font-size: 1.1rem;
-    color: var(--texto-principal);
-    opacity: 0.8;
+    line-height: 1.6;
+    margin-bottom: 40px;
 }
 
-/* Link de ação dentro do header (se houver) */
-.home-header a {
-    color: var(--marrom-primario);
-    text-decoration: none;
-    font-weight: 600;
-    transition: color 0.3s;
+/* Coluna de Imagem (Direita) */
+.hero-image-block {
+    flex: 1;
+    border-radius: 8px;
+    overflow: hidden; 
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); 
 }
 
-.home-header a:hover {
-    color: var(--bronze-secundario);
-    text-decoration: underline;
+.responsive-hero-image {
+    width: 55%;
+    height: auto;
+    display: block;
+    object-fit: cover;
 }
 
-/* ======================================= */
-/* 2. SEÇÃO DE ATIVOS EM DESTAQUE          */
-/* ======================================= */
-
-.featured-section {
-    padding: 40px 20px;
-    max-width: 1200px;
-    margin: 0 auto; /* Centraliza a seção no meio da tela */
+/* ESTILO DOS BOTÕES */
+.action-buttons {
+    display: flex;
+    gap: 15px;
 }
-
-.featured-section h2 {
-    font-size: 1.8rem;
-    color: var(--texto-principal);
-    margin-bottom: 25px;
-    text-align: center;
-    border-bottom: 2px solid var(--marrom-primario);
-    display: inline-block; /* Ajusta a largura da borda ao conteúdo */
-    padding-bottom: 5px;
-}
-
-/* Container de Ativos (Grid para exibição limpa) */
-.ativos-grid {
-    display: grid;
-    /* 4 colunas em telas grandes */
-    grid-template-columns: repeat(4, 1fr); 
-    gap: 25px; /* Espaçamento entre os cards */
-    margin-top: 30px;
-}
-
-/* Responsividade (Ajuste para telas menores) */
-@media (max-width: 992px) {
-    .ativos-grid {
-        /* 2 colunas em tablets */
-        grid-template-columns: repeat(2, 1fr); 
-    }
-}
-
-@media (max-width: 576px) {
-    .ativos-grid {
-        /* 1 coluna em celulares */
-        grid-template-columns: 1fr; 
-    }
-    .home-header h1 {
-        font-size: 2rem;
-    }
-}
-
-/* Estilo para a mensagem de carregamento ou erro */
-.loading-message, .error-message {
-    text-align: center;
-    padding: 30px;
-    color: var(--texto-principal);
-    font-style: italic;
-}
-h1{
-    text-align: center;
-}
-p{
-    text-align: center;
-}
-
-/* Efeito ao passar o mouse (Hover) */
-.btn-primary:hover {
-    background-color: #8D4625; /* Marrom levemente mais escuro */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra suave para elevação */
-}
-
-/* Efeito ao clicar (Active) */
-.btn-primary:active {
-    transform: translateY(1px); /* Pequeno afundamento */
-}
-.btn-primary {
-    /* CRÍTICO: Faz o link <a> se comportar como um botão de bloco */
-    display: inline-block;
-   
-
-    /* Aparência Clean */
-    background-color: var(--marrom-primario);
-    color: white;
-    border: none;
-    border-radius: 4px;
-    /* Remoção do sublinhado padrão do link */
-    text-decoration: none;
-    /* Texto */
-
-    padding: 10px 25px;
-    font-size: 1rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    /* Interação */
-    cursor: pointer;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
-
-}
-
-
-
-/* Efeito ao passar o mouse (Hover Clean) */
-
-.btn-primary:hover {
-    background-color: #8D4625; /* Marrom levemente mais escuro */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra suave para elevação */
-    transform: translateY(-2px); /* Elevação suave */
-}
-
-
-
-/* ======================================= */
-
-/* MODIFICADOR DE TAMANHO: .large          */
-
-/* ======================================= */
 
 .btn-primary.large {
-
-    /* Aumenta o espaçamento para torná-lo um "botão principal" */
-    padding: 14px 35px;
-    font-size: 1.15rem; /* Fonte um pouco maior */
-    font-weight: 700;
-
-}
-
-/* Container para centralizar o botão (opcional, dependendo do layout) */
-
-.action-buttons {
-    text-align: center; /* Centraliza o link horizontalmente */
-    margin-top: 30px;
-    margin-bottom: 30px;
-}
-
-.btn-primary:hover {
-    background-color: #8D4625; /* Marrom levemente mais escuro */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra suave para elevação */
-}
-
-/* Efeito ao clicar (Active) */
-.btn-primary:active {
-    transform: translateY(1px); /* Pequeno afundamento */
-}
-.btn-secondary {
-    /* CRÍTICO: Faz o link <a> se comportar como um botão de bloco */
-    display: inline-block;
-   
-
-    /* Aparência Clean */
-    background-color: var(--marrom-primario);
+    background-color: var(--verde-primario);
     color: white;
-    border: none;
-    border-radius: 4px;
-    /* Remoção do sublinhado padrão do link */
+    padding: 12px 25px;
     text-decoration: none;
-    /* Texto */
-
-    padding: 10px 25px;
-    font-size: 1rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    /* Interação */
-    cursor: pointer;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
-
+    border-radius: 4px;
+    border: none;
+    transition: background-color 0.2s;
 }
 
-
-
-/* Efeito ao passar o mouse (Hover Clean) */
-
-.btn-secondary:hover {
-    background-color: #8D4625; /* Marrom levemente mais escuro */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra suave para elevação */
-    transform: translateY(-2px); /* Elevação suave */
+.btn-primary.large:hover {
+    background-color: var(--verde-escuro);
 }
-
-
-
-/* ======================================= */
-
-/* MODIFICADOR DE TAMANHO: .large          */
-
-/* ======================================= */
 
 .btn-secondary.large {
-
-    /* Aumenta o espaçamento para torná-lo um "botão principal" */
-    padding: 14px 35px;
-    font-size: 1.15rem; /* Fonte um pouco maior */
-    font-weight: 700;
-
-}
-
-/* Container para centralizar o botão (opcional, dependendo do layout) */
-
-.action-buttons {
-    text-align: center; /* Centraliza o link horizontalmente */
-    margin-top: 30px;
-    margin-bottom: 30px;
-}
-.btn-clean {
-    /* CRÍTICO: Faz o link <a> se comportar como um botão de bloco */
-    display: inline-block;
-   
-
-    /* Aparência Clean */
-    background-color: var(--marrom-primario);
-    color: white;
-    border: none;
-    border-radius: 4px;
-    /* Remoção do sublinhado padrão do link */
+    background-color: transparent;
+    border: 2px solid var(--verde-primario);
+    color: var(--verde-primario);
+    padding: 10px 25px; 
     text-decoration: none;
-    /* Texto */
-
-    padding: 10px 25px;
-    font-size: 1rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    /* Interação */
-    cursor: pointer;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
-
+    border-radius: 4px;
+    transition: background-color 0.2s, color 0.2s;
 }
 
-
-
-/* Efeito ao passar o mouse (Hover Clean) */
-
-.btn-clean:hover {
-    background-color: #8D4625; /* Marrom levemente mais escuro */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra suave para elevação */
-    transform: translateY(-2px); /* Elevação suave */
+.btn-secondary.large:hover {
+    background-color: var(--verde-primario);
+    color: white;
 }
 
-
-
-/* ======================================= */
-
-/* MODIFICADOR DE TAMANHO: .large          */
-
-/* ======================================= */
-
-.btn-clean.large {
-
-    /* Aumenta o espaçamento para torná-lo um "botão principal" */
-    padding: 14px 35px;
-    font-size: 1.15rem; /* Fonte um pouco maior */
-    font-weight: 700;
-
-}
-
-/* Container para centralizar o botão (opcional, dependendo do layout) */
-
-.action-buttons {
-    text-align: center; /* Centraliza o link horizontalmente */
-    margin-top: 30px;
-    margin-bottom: 30px;
+/* MEDIA QUERY (Responsividade para Mobile) */
+@media (max-width: 900px) {
+    .hero-content-wrapper {
+        flex-direction: column; 
+        gap: 30px;
+    }
+    .hero-text-block, .hero-image-block {
+        max-width: 100%;
+    }
+    .hero-image-block {
+        order: -1; /* Move a imagem para cima no mobile */
+    }
+    .hero-text-block h1 {
+        font-size: 2.5rem;
+    }
+    .action-buttons {
+        flex-direction: column;
+    }
 }
