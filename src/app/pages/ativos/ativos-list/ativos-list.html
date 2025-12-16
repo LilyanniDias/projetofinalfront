@@ -1,44 +1,30 @@
-<div class="ativos-container">
-    <h2>Catálogo de Ativos Naturais</h2>
-
-    <!-- Carregando dados -->
-    <div *ngIf="isLoading" class="loading-message">
-        Carregando dados do servidor...
+<div class="search-bar-container">
+    <input
+      type="text"
+      placeholder="Pesquisar por nome, função ou origem..."
+      [(ngModel)]="searchTerm" 
+      (ngModelChange)="filtrarAtivos()" 
+      class="search-input"
+    />
+  </div>
+  
+  <div *ngIf="errorMensagem" class="error-message">
+    {{ errorMensagem }}
+  </div>
+  
+  <div *ngIf="ativosRaw().length === 0 && !errorMensagem" class="loading-message">
+    Carregando ativos ou lista vazia...
+  </div>
+  
+  <div class="ativos-grid">
+    <div *ngFor="let ativo of ativosFiltrados()" class="ativo-card">
+      <h3>{{ ativo.nome }}</h3>
+      <p><strong>Origem:</strong> {{ ativo.origem_geografica }}</p>
+      <p><strong>Função Principal:</strong> {{ ativo.funcao_principal }}</p>
+      <p><strong>Indicado:</strong> {{ ativo.tipo_de_pele_indicada }}</p>
+      </div>
+  
+    <div *ngIf="ativosRaw().length > 0 && ativosFiltrados().length === 0" class="no-results-message">
+      Nenhum ativo encontrado com o termo "{{ searchTerm() }}".
     </div>
-
-    <!-- Mensagem de erro -->
-    <div *ngIf="errorMensagem" class="error-message">
-        <p><strong>Erro na Conexão:</strong> {{ errorMensagem }}</p>
-        <p>
-            Verifique se o servidor Node.js está rodando na porta 3000
-            e se a rota <code>/api/ativos</code> está correta.
-        </p>
-    </div>
-
-    <!-- Listando ativos -->
-    <div *ngIf="!isLoading && !errorMensagem && ativos.length > 0" class="ativos-list">
-        <div *ngFor="let ativos of ativos" class="ativo-card">
-            <h3>{{ ativos.nome }}</h3>
-
-            <p>
-                <strong>Origem:</strong>
-                {{ ativos.origem_geografica }}
-            </p>
-
-            <p>
-                <strong>Função Principal:</strong>
-                {{ ativos.funcao_principal }}
-            </p>
-
-            <p>
-                <strong>Pele Indicada:</strong>
-                {{ ativos.tipo_de_pele_indicada }}
-            </p>
-        </div>
-    </div>
-
-    <!-- Nenhum ativo encontrado -->
-    <div *ngIf="!isLoading && !errorMensagem && ativos.length === 0" class="no-data-message">
-        Nenhum ativo encontrado no banco de dados.
-    </div>
-</div>
+  </div>

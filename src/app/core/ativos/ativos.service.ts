@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
 
 // ✅ Interface com nomes IDÊNTICOS ao JSON do backend
 export interface Ativo {
-    id: number;
+    id_ativo: number;
     nome: string;
     origem_geografica: string;
     funcao_principal: string;

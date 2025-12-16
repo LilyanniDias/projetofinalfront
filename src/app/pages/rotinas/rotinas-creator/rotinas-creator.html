@@ -1,0 +1,66 @@
+<div class="rotina-creator-container">
+    <h1>Criar Rotina Personalizada (5 Passos Fixos)</h1>
+  
+    <form (ngSubmit)="salvarRotina()">
+      
+      <section class="card-section">
+        <h3>1. Identificação da Rotina</h3>
+        <label for="nomeRotina">Nome da Rotina:</label>
+        <input id="nomeRotina" type="text" [(ngModel)]="nomeRotina" name="nomeRotina" required>
+      </section>
+  
+      <section class="card-section add-step-section">
+        <h3>2. Preencher Slot</h3>
+        
+        <div class="step-controls">
+          
+          <select [(ngModel)]="selectedSlotCategory" name="selectedSlotCategory" required>
+            <option [ngValue]="null" disabled>Selecione a Categoria a Preencher...</option>
+            <option *ngFor="let slot of slotsRotina()" [ngValue]="slot.category">
+              {{ slot.category }} 
+              <span *ngIf="slot.ativo !== null">(Preenchido com: {{ slot.ativo.nome }})</span>
+            </option>
+          </select>
+  
+          <select [(ngModel)]="selectedAtivoId" name="selectedAtivoId" required>
+            <option value="" disabled>Selecione o Ativo...</option>
+            <option *ngFor="let ativo of ativosDisponiveis()" [value]="ativo.id_ativo">
+              {{ ativo.nome }} ({{ ativo.funcao_principal }})
+            </option>
+          </select>
+          
+          <button type="button" (click)="preencherSlot()" 
+                  [disabled]="!selectedSlotCategory || !selectedAtivoId">
+            Preencher Slot
+          </button>
+        </div>
+      </section>
+  
+      <section class="current-steps-section">
+        <h3>3. Os 5 Passos Fixos na Ordem de Aplicação</h3>
+        <div class="slots-grid">
+          <div *ngFor="let slot of slotsRotina()" class="slot-card" 
+               [class.filled]="slot.ativo !== null">
+            
+            <div class="slot-header">
+              <span class="slot-order">{{ slot.ordem_fixa }}º | {{ slot.category }}</span>
+              <button *ngIf="slot.ativo" type="button" class="remove-button" 
+                      (click)="removerSlot(slot.category)">Remover</button>
+            </div>
+  
+            <div *ngIf="slot.ativo">
+              <h4>{{ slot.ativo.nome }}</h4>
+              <p><strong>Função:</strong> {{ slot.ativo.funcao_principal }}</p>
+            </div>
+            <div *ngIf="slot.ativo === null" class="empty-slot">
+              Vazio.
+            </div>
+          </div>
+        </div>
+      </section>
+  
+      <button type="submit" class="save-button" [disabled]="!nomeRotina.trim()">
+        Salvar Rotina
+      </button>
+    </form>
+  </div>
