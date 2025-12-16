@@ -2,8 +2,8 @@
 
 :root {
     /* Cores de Destaque (Verde-Azulado, inspirado no Beautyness) */
-    --verde-primario: #5F8C8A;    /* Cor principal para botões, links, etc. */
-    --verde-escuro: #4D7472;      /* Cor de hover e títulos importantes */
+    --verde-primario: #060931;    /* Cor principal para botões, links, etc. */
+    --verde-escuro: #5683e4;      /* Cor de hover e títulos importantes */
     --verde-claro-fundo: #E5F3F2; /* Fundo muito suave, se necessário */
 
     /* Cores de Fundo */
@@ -12,7 +12,7 @@
 
     /* Cores de Texto */
     --cor-texto-principal: #333333;
-    --texto-secundario: #666666;
+    --texto-secundario: #5683e4;
 
     /* Cores de Estado */
     --cor-erro: #e53e3e; /* Vermelho para mensagens de erro */

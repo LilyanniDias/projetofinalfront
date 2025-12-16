@@ -1,1 +1,44 @@
-<p>ativos-list works!</p>
+<div class="ativos-container">
+    <h2>Catálogo de Ativos Naturais</h2>
+
+    <!-- Carregando dados -->
+    <div *ngIf="isLoading" class="loading-message">
+        Carregando dados do servidor...
+    </div>
+
+    <!-- Mensagem de erro -->
+    <div *ngIf="errorMensagem" class="error-message">
+        <p><strong>Erro na Conexão:</strong> {{ errorMensagem }}</p>
+        <p>
+            Verifique se o servidor Node.js está rodando na porta 3000
+            e se a rota <code>/api/ativos</code> está correta.
+        </p>
+    </div>
+
+    <!-- Listando ativos -->
+    <div *ngIf="!isLoading && !errorMensagem && ativos.length > 0" class="ativos-list">
+        <div *ngFor="let ativos of ativos" class="ativo-card">
+            <h3>{{ ativos.nome }}</h3>
+
+            <p>
+                <strong>Origem:</strong>
+                {{ ativos.origem_geografica }}
+            </p>
+
+            <p>
+                <strong>Função Principal:</strong>
+                {{ ativos.funcao_principal }}
+            </p>
+
+            <p>
+                <strong>Pele Indicada:</strong>
+                {{ ativos.tipo_de_pele_indicada }}
+            </p>
+        </div>
+    </div>
+
+    <!-- Nenhum ativo encontrado -->
+    <div *ngIf="!isLoading && !errorMensagem && ativos.length === 0" class="no-data-message">
+        Nenhum ativo encontrado no banco de dados.
+    </div>
+</div>

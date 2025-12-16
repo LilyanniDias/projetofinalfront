@@ -1,26 +1,40 @@
 <div class="ativo-card-container">
-    <div class="card-header">
-        <h3>{{ ativo.nome }}</h3>
-        
-        <button *ngIf="false" class="favorite-btn">
-            ❤️
-        </button>
-    </div>
 
-    <p class="descricao-rapida">{{ ativo.descricao_rapida }}</p>
+  <!-- Cabeçalho -->
+  <div class="card-header">
+    <h3>{{ ativo.nome }}</h3>
 
-    <div class="card-tags">
-        <span class="tag tag-pele">{{ ativo.tipo_pele.split(',')[0].trim() }}</span>
-        <span class="tag tag-necessidade">{{ ativo.necessidades.split(',')[0].trim() }}</span>
-    </div>
+    <!-- Botão favorito (desativado por enquanto) -->
+    <button *ngIf="false" class="favorito-btn">
+      ❤️
+    </button>
+  </div>
 
-    <div class="card-actions">
-        <a [routerLink]="['/ativos', ativo.id]" class="btn-detalhes">
-            Ver Mais
-        </a>
-        
-        <button *ngIf="false" class="btn-rotina" disabled>
-            + Rotina
-        </button>
-    </div>
+  <!-- Descrição principal -->
+  <p class="descricao-rapida">
+    {{ ativo.funcao_principal }}
+  </p>
+
+  <!-- Tags -->
+  <div class="card-tags">
+    <span class="tag tag-pele">
+      {{ ativo.tipo_de_pele_indicada }}
+    </span>
+  </div>
+
+  <!-- Ações -->
+  <div class="card-actions">
+    <a
+      [routerLink]="['/ativos', ativo.id]"
+      class="btn-detalhes"
+    >
+      Ver mais
+    </a>
+
+    <!-- Botão futura funcionalidade -->
+    <button *ngIf="false" class="btn-rotina" disabled>
+      + Rotina
+    </button>
+  </div>
+
 </div>
