@@ -1,0 +1,205 @@
+/* --- Background e Tipografia --- */
+.rotinas-page-wrapper {
+  background-color: #fdfcfb;
+  min-height: 100vh;
+  padding: 40px 8%;
+  font-family: 'Inter', sans-serif;
+}
+
+.header-rotina {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.brand-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.8rem;
+  color: #050a24;
+  margin-bottom: 5px;
+}
+
+.tagline {
+  color:#041f6b;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+/* --- Input Minimalista --- */
+.nome-rotina-box {
+  max-width: 500px;
+  margin: 0 auto 60px;
+  position: relative;
+}
+
+.input-ritual {
+  width: 100%;
+  border: none;
+  background: transparent;
+  padding: 15px 10px;
+  font-size: 1.4rem;
+  font-family: 'Playfair Display', serif;
+  text-align: center;
+  color: #050a24;
+  outline: none;
+}
+
+.input-focus-line {
+  height: 1px;
+  background: #e0e0e0;
+  width: 60%;
+  margin: 0 auto;
+  transition: width 0.4s ease, background 0.4s ease;
+}
+
+.input-ritual:focus + .input-focus-line {
+  width: 100%;
+  background:#041f6b;
+}
+
+/* --- Grid de Etapas (Cards) --- */
+.etapas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+}
+
+.etapa-card {
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 12px;
+  border: 1px solid #f2f2f2;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+  transition: transform 0.3s ease;
+}
+
+.etapa-card:hover {
+  transform: translateY(-5px);
+  border-color:#041f6b;
+}
+
+.etapa-label {
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  color:#041f6b;
+  letter-spacing: 2px;
+  font-weight: 700;
+}
+
+.etapa-header h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  color: #050a24;
+  margin: 5px 0 25px 0;
+  border-bottom: 1px solid #faf9f7;
+  padding-bottom: 10px;
+}
+
+/* --- Checkbox Estilizado --- */
+.check-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: #555;
+  transition: color 0.3s;
+}
+
+.check-item input { display: none; }
+
+.custom-check {
+  width: 18px;
+  height: 18px;
+  border: 1px solid #dcdcdc;
+  border-radius: 4px;
+  margin-right: 12px;
+  display: inline-block;
+  position: relative;
+  transition: 0.3s;
+}
+
+.check-item input:checked + .custom-check {
+  background-color: #050a24;
+  border-color: #050a24;
+}
+
+.check-item input:checked + .custom-check::after {
+  content: '✓';
+  color: white;
+  font-size: 12px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.check-item:hover .ativo-nome { color:#041f6b;}
+
+/* --- Botão Salvar --- */
+.footer-actions {
+  text-align: center;
+  margin-top: 60px;
+}
+
+.btn-salvar-ritual {
+  background: #1a1a1a;
+  color: white;
+  border: none;
+  padding: 18px 60px;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 2px;
+  font-size: 0.8rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-salvar-ritual:hover {
+  background:#041f6b;
+  box-shadow: 0 10px 25px rgba(160, 133, 91, 0.2);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .etapas-grid { grid-template-columns: 1fr; }
+}
+/* Posicionamento do link de voltar dentro do card */
+.btn-back {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color:#041f6b;
+    text-decoration: none;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    margin-bottom: 30px; /* Espaço para não grudar no título */
+    transition: all 0.3s ease;
+    width: fit-content;
+}
+
+/* Estilização da seta */
+.btn-back .arrow {
+    font-size: 1.1rem;
+    line-height: 1;
+    transition: transform 0.3s ease;
+}
+
+/* Efeito Hover */
+.btn-back:hover {
+    color: #050a24; /* Azul marinho profundo */
+}
+
+.btn-back:hover .arrow {
+    transform: translateX(-5px); /* Movimento sutil para a esquerda */
+}
+
+/* Garantir que o card tenha um padding interno bom para o botão respirar */
+.login-card {
+    padding: 40px 50px;
+    /* ... seus outros estilos do card ... */
+}

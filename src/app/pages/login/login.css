@@ -131,6 +131,43 @@ input:focus {
     opacity: 0.7;
     cursor: not-allowed;
 }
+/* Posicionamento do link de voltar dentro do card */
+.btn-back {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #041f6b;
+    text-decoration: none;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    margin-bottom: 30px; /* Espaço para não grudar no título */
+    transition: all 0.3s ease;
+    width: fit-content;
+}
+
+/* Estilização da seta */
+.btn-back .arrow {
+    font-size: 1.1rem;
+    line-height: 1;
+    transition: transform 0.3s ease;
+}
+
+/* Efeito Hover */
+.btn-back:hover {
+    color: #050a24; /* Azul marinho profundo */
+}
+
+.btn-back:hover .arrow {
+    transform: translateX(-5px); /* Movimento sutil para a esquerda */
+}
+
+/* Garantir que o card tenha um padding interno bom para o botão respirar */
+.login-card {
+    padding: 40px 50px;
+    /* ... seus outros estilos do card ... */
+}
 
 /* 6. REMOÇÃO DOS LINKS DE AJUDA */
 /* O bloco .help-links foi removido do HTML. O CSS abaixo não é mais necessário, mas fica aqui para referência. */

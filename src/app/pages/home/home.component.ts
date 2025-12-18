@@ -76,4 +76,12 @@ export class HomeComponent implements OnInit {
     // embora o Angular reativo deva fazer isso:
     // window.location.reload();
   }
+  ativosFixos = [
+    { nome: 'Óleo de Copaíba', origem: 'Amazônia', funcao: 'Anti-inflamatório', indicado: 'Peles acneicas' },
+    { nome: 'Extrato de Açaí', origem: 'Amazônia', funcao: 'Antioxidante', indicado: 'Peles maduras' },
+    { nome: 'Manteiga de Cupuaçu', origem: 'Amazônia', funcao: 'Hidratante Emoliente', indicado: 'Pele Seca' },
+    { nome: 'Argila Verde', origem: 'Minas Gerais', funcao: 'Controle de Oleosidade', indicado: 'Pele Oleosa' },
+    { nome: 'Extrato de Acerola', origem: 'Nordeste', funcao: 'Vitamina C Natural', indicado: 'Luminosidade' },
+    { nome: 'Óleo de Buriti', origem: 'Cerrado', funcao: 'Proteção Solar Natural', indicado: 'Pele sensível' }
+  ];
 }

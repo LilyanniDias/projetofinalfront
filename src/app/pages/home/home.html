@@ -48,29 +48,32 @@
     </header>
     <hr>
 
-        <section class="destaques-section">
-        <span class="section-tag">RECOMENDAÇÕES</span>
-        <h2>Ativos Mais Populares</h2>
-        
-        <div *ngIf="isLoading" class="loading-message">
-            Carregando ativos em destaque...
-        </div>
+       <section class="destaques-section">
+    <div class="container">
+        <header class="section-header">
+            <span class="section-tag">RECOMENDAÇÕES</span>
+            <h2>Ativos Mais Populares</h2>
+            <p class="section-description">Conheça os segredos da flora brasileira para sua pele.</p>
+        </header>
 
-        <div *ngIf="!isLoading && ativosEmDestaque.length > 0" class="ativos-grid">
-            <app-card-ativo 
-                *ngFor="let ativo of ativosEmDestaque" 
-                [ativo]="ativo" 
-            />
-        </div>
+        <div class="ativos-grid">
+            <div class="ativo-card-estilizado" *ngFor="let ativo of ativosFixos">
+                <div class="card-header">
+                    <h3>{{ ativo.nome }}</h3>
+                </div>
+                <div class="card-body">
+                    <p class="info-tag"><strong>Origem:</strong> {{ ativo.origem }}</p>
+                    <p class="info-tag"><strong>Função:</strong> {{ ativo.funcao }}</p>
+                    <p class="info-tag"><strong>Indicado:</strong> {{ ativo.indicado }}</p>
+                </div>
+            </div>
+        </div>
 
-        <div *ngIf="!isLoading && ativosEmDestaque.length === 0" class="no-data">
-            Não foi possível carregar os ativos no momento.
-        </div>
-        
-    </section>
-    
-    <div class="full-list-link">
-        <a [routerLink]="['/ativos']">Ver a lista completa de ativos &rarr;</a>
-    </div>
-
-</div>
+        <div class="full-list-link">
+            <a [routerLink]="['/ativos']">
+                Explorar catálogo completo 
+                <span class="arrow">&rarr;</span>
+            </a>
+        </div>
+    </div>
+</section>

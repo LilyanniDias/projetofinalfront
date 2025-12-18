@@ -49,16 +49,17 @@
 /* Coluna de Imagem (Direita) */
 .hero-image-block {
     flex: 1;
-    border-radius: 8px;
-    overflow: hidden; 
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); 
+    display: flex;
+    justify-content: center;
 }
 
 .responsive-hero-image {
-    width: 55%;
+    max-width: 60%;
     height: auto;
-    display: block;
-    object-fit: cover;
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.05); /* Sombra suave */
 }
 
 /* ESTILO DOS BOTÕES */
@@ -115,3 +116,164 @@
         flex-direction: column;
     }
 }
+/* --- Seção de Recomendados --- */
+.destaques-section {
+    padding: 100px 10%;
+    background-color: #fdfcfb; /* Um tom de pérola bem suave */
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.section-tag {
+    color: #041f6b;/* Dourado terra/areia */
+    letter-spacing: 4px;
+    font-size: 0.75rem;
+    font-weight: 700;
+}
+
+.section-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.2rem;
+    color: #1a1a1a;
+    margin: 15px 0;
+}
+
+/* Grid sem divisórias pesadas */
+.ativos-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 50px 30px; /* Mais espaço vertical entre as linhas */
+}
+
+.ativo-card-estilizado {
+    background: transparent;
+    padding: 0;
+    transition: all 0.4s ease;
+    display: flex;
+    flex-direction: column;
+    border: none; /* Removemos a borda para um look mais clean */
+}
+
+/* Criamos um bloco visual para o título */
+.card-header {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 15px 15px 0 0;
+    border: 1px solid #f0f0f0;
+    border-bottom: none;
+}
+
+.ativo-card-estilizado h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: #050a24;
+    margin: 0;
+    text-align: center;
+}
+
+/* Bloco de informações com fundo suave */
+.card-body {
+    background-color: #faf9f7;
+    padding: 25px 30px;
+    border: 1px solid #f0f0f0;
+    flex-grow: 1; /* Faz todos os corpos terem o mesmo tamanho na linha */
+}
+
+.info-tag {
+    font-size: 0.85rem;
+    color: #444;
+    margin-bottom: 12px;
+    line-height: 1.5;
+}
+
+.info-tag strong {
+    color: #041f6b;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    display: block; /* Título da info em cima do valor */
+    margin-bottom: 2px;
+}
+
+/* Botão discreto que "surge" no hover */
+.btn-detalhes {
+    background: #1a1a1a;
+    color: white;
+    border: none;
+    padding: 18px;
+    font-weight: 600;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border-radius: 0 0 15px 15px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.ativo-card-estilizado:hover {
+    transform: translateY(-5px);
+}
+
+.ativo-card-estilizado:hover .card-header,
+.ativo-card-estilizado:hover .card-body {
+    border-color: #041f6b;
+}
+
+.btn-detalhes:hover {
+    background:#041f6b;
+}
+/* Container do botão para centralizar */
+.full-list-link {
+    text-align: center;
+    margin-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* O botão em si */
+.full-list-link a {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 40px;
+    background-color: #050a24; /* Azul marinho profundo */
+    color: #ffffff !important;
+    text-decoration: none !important;
+    font-weight: 600;
+    font-size: 0.95rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-radius: 50px; /* Formato pílula, muito usado em skincare */
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    box-shadow: 0 4px 15px rgba(5, 10, 36, 0.15);
+}
+
+/* Ícone da seta */
+.full-list-link a .arrow {
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+}
+
+/* Efeito ao passar o rato (Hover) */
+.full-list-link a:hover {
+    background-color: #4a6fa5; /* Um azul mais suave no hover */
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(5, 10, 36, 0.25);
+    letter-spacing: 1.5px;
+}
+
+/* Animação da seta no hover */
+.full-list-link a:hover .arrow {
+    transform: translateX(8px);
+}
+
+/* Efeito ao clicar */
+.full-list-link a:active {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(5, 10, 36, 0.15);
+}
+
+/* Responsividade */
+@media (max-width: 1024px) { .ativos-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px) { .ativos-grid { grid-template-columns: 1fr; } }

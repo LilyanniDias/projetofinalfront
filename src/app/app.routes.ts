@@ -3,7 +3,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { CadastroComponent } from './pages/cadastro/cadastro.component';
 import { AtivosListComponent } from './pages/ativos/ativos-list/ativos-list.component';
-import { RotinasListComponent } from './pages/rotinas/rotinas-list/rotinas-list.component';
+import { RotinasComponent } from './pages/rotinas/rotinas-list/rotinas-list.component';
 import { authGuard } from './core/guards/auth-guard';
 import { InteligenteAtivosListComponent } from './pages/ativos/inteligente-ativos-list/inteligente-ativos-list.component';
 import { FavoritosComponent } from './pages/favoritos/favoritos.component';
@@ -19,8 +19,7 @@ export const routes: Routes = [
 
   {
     path: 'minhas-rotinas',
-    component: RotinasListComponent,
-    canActivate: [authGuard], 
+    component: RotinasComponent,
     title: 'Minhas Rotinas'
   },
   

@@ -1,46 +1,42 @@
-<div class="rotinas-container">
-  
-    <div class="header">
-      <h1>Minhas Rotinas de Skincare Salvas</h1>
-      <a [routerLink]="['/criar-rotina']" class="create-button">
-        Criar Nova Rotina
-      </a>
+<div class="rotinas-page-wrapper">
+  <a [routerLink]="['/home']" class="btn-back">
+    <span class="arrow">&larr;</span> Voltar ao Início
+  </a>
+
+  <header class="header-rotina">
+    <h1 class="brand-title">PeleNativa</h1>
+    <p class="tagline">Crie seu ritual personalizado</p>
+  </header>
+
+  <div class="container-criacao">
+    <div class="nome-rotina-box">
+      <input [(ngModel)]="nome" name="nomeRotina" placeholder="Dê um nome ao seu ritual (ex: Ritual da Manhã)" class="input-ritual" />
+      <div class="input-focus-line"></div>
     </div>
-  
-    <div *ngIf="errorMensagem" class="error-message">
-      {{ errorMensagem }}
-    </div>
-  
-    <div *ngIf="rotinas().length === 0 && !errorMensagem" class="empty-message">
-      Você ainda não possui rotinas salvas. Clique em "Criar Nova Rotina" para começar!
-    </div>
-  
-    <div class="rotinas-grid">
-      <div *ngFor="let rotina of rotinas()" class="rotina-card">
-        
-        <div class="rotina-header">
-          <h2>{{ rotina.nome }}</h2>
-          <span class="step-count">{{ rotina.ativos.length }} Passos</span>
+
+    <div class="etapas-grid">
+      <div *ngFor="let etapa of ['limpeza', 'tratamento', 'hidratacao', 'protecao']" class="etapa-card">
+        <div class="etapa-header">
+          <span class="etapa-label">Etapa</span>
+          <h3>{{ etapa | titlecase }}</h3>
         </div>
-        
-        <p class="metadata">
-          Criada em: {{ rotina.data_criacao | date:'dd/MM/yyyy' }}
-        </p>
-        
-        <div class="passos-list">
-          <h3>Sequência:</h3>
-          
-          <div *ngFor="let ativo of rotina.ativos; let i = index" class="passo-item">
-            
-            <div class="passo-order">{{ i + 1 }}º</div>
-            
-            <div class="passo-details">
-              <strong>{{ ativo.passo }}</strong>
-              <p>{{ ativo.nome }}</p>
-              <small>Função: {{ ativo.funcao_principal }}</small>
-            </div>
+
+        <div class="ativos-selection-list">
+          <div *ngFor="let ativo of ativosPorEtapa[etapa]" class="ativo-checkbox-wrapper">
+            <label class="check-item">
+              <input type="checkbox" (change)="toggleAtivo(etapa, ativo.id, $event)" />
+              <span class="custom-check"></span>
+              <span class="ativo-nome">{{ ativo.nome }}</span>
+            </label>
           </div>
         </div>
       </div>
     </div>
+
+    <div class="footer-actions">
+      <button (click)="salvar()" class="btn-salvar-ritual">
+        Salvar Rotina
+      </button>
+    </div>
   </div>
+</div>

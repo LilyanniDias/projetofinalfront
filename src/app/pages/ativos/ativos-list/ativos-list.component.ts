@@ -5,13 +5,15 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms'; // 🚨 IMPORTANTE: Adicionado para usar [(ngModel)]
 import { AtivosService, Ativo } from '../../../core/ativos/ativos.service';
 import { AuthService } from '../../../core/auth/auth.service';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-ativos-list',
   standalone: true,
   imports: [
     CommonModule,
-    FormsModule // ⬅️ Habilita a barra de pesquisa
+    FormsModule,
+    RouterLink // ⬅️ Habilita a barra de pesquisa
   ],
   templateUrl: './ativos-list.html',
   styleUrls: ['./ativos-list.css']

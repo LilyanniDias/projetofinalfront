@@ -1,33 +1,39 @@
+<div class="back-navigation">
+  <a [routerLink]="['/home']" class="btn-back">
+    <span class="arrow">&larr;</span> Voltar para o Início
+  </a>
+</div>
+
 <div class="search-bar-container">
-    <input
-      type="text"
-      placeholder="Pesquisar por nome, função ou origem..."
-      [(ngModel)]="searchTerm" 
-      (ngModelChange)="filtrarAtivos()" 
-      class="search-input"
-    />
+  <input
+    type="text"
+    placeholder="Pesquisar por nome, função ou origem..."
+    [(ngModel)]="searchTerm" 
+    (ngModelChange)="filtrarAtivos()" 
+    class="search-input"
+  />
+</div>
+
+<div *ngIf="errorMensagem" class="error-message">
+  {{ errorMensagem }}
+</div>
+
+<div *ngIf="ativosRaw().length === 0 && !errorMensagem" class="loading-message">
+  Carregando ativos ou lista vazia...
+</div>
+
+<div class="ativos-grid">
+  <div *ngFor="let ativo of ativosFiltrados()" class="ativo-card">
+    <h3>{{ ativo.nome }}</h3>
+    <p><strong>Origem:</strong> {{ ativo.origem_geografica }}</p>
+    <p><strong>Função Principal:</strong> {{ ativo.funcao_principal }}</p>
+    <p><strong>Indicado:</strong> {{ ativo.tipo_de_pele_indicada }}</p>
+    <button (click)="toggleFavorito(ativo)" class="favorite-btn">
+      {{ isFavorito(ativo) ? 'Remover dos Favoritos' : 'Adicionar aos Favoritos' }}
+    </button>
   </div>
-  
-  <div *ngIf="errorMensagem" class="error-message">
-    {{ errorMensagem }}
+
+  <div *ngIf="ativosRaw().length > 0 && ativosFiltrados().length === 0" class="no-results-message">
+    Nenhum ativo encontrado com o termo "{{ searchTerm() }}".
   </div>
-  
-  <div *ngIf="ativosRaw().length === 0 && !errorMensagem" class="loading-message">
-    Carregando ativos ou lista vazia...
-  </div>
-  
-  <div class="ativos-grid">
-    <div *ngFor="let ativo of ativosFiltrados()" class="ativo-card">
-      <h3>{{ ativo.nome }}</h3>
-      <p><strong>Origem:</strong> {{ ativo.origem_geografica }}</p>
-      <p><strong>Função Principal:</strong> {{ ativo.funcao_principal }}</p>
-      <p><strong>Indicado:</strong> {{ ativo.tipo_de_pele_indicada }}</p>
-      <button (click)="toggleFavorito(ativo)" class="favorite-btn">
-        {{ isFavorito(ativo) ? 'Remover dos Favoritos' : 'Adicionar aos Favoritos' }}
-      </button>
-    </div>
-  
-    <div *ngIf="ativosRaw().length > 0 && ativosFiltrados().length === 0" class="no-results-message">
-      Nenhum ativo encontrado com o termo "{{ searchTerm() }}".
-    </div>
-  </div>
+</div>

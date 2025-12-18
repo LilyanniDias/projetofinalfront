@@ -149,3 +149,39 @@ input:focus {
 .link-login:hover {
     text-decoration: underline;
 }
+/* Container para posicionamento */
+.back-navigation {
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: flex-start;
+}
+
+/* Estilo do botão/link */
+.btn-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #041f6b;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    transition: all 0.3s ease;
+    padding: 8px 0;
+}
+
+/* Estilização da seta */
+.btn-back .arrow {
+    font-size: 1.1rem;
+    transition: transform 0.3s ease;
+}
+
+/* Efeito de interação */
+.btn-back:hover {
+    color: #050a24; /* Muda para o azul marinho da marca no hover */
+}
+
+.btn-back:hover .arrow {
+    transform: translateX(-5px); /* Micro-interação da seta movendo para a esquerda */
+}
