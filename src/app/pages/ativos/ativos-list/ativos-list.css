@@ -129,6 +129,55 @@
     letter-spacing: 1.5px;
     transition: 0.3s;
 }
+/* Container do seletor */
+.skin-type-selector-container {
+  margin: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* Label */
+.skin-type-selector-container label {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #333;
+}
+
+/* Select */
+.skin-type-selector-container select {
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.5rem;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  font-size: 0.95rem;
+  color: #333;
+  transition: border 0.2s, box-shadow 0.2s;
+  width: 100%;
+  max-width: 400px; /* opcional, limita o tamanho em telas grandes */
+}
+
+/* Hover e foco */
+.skin-type-selector-container select:hover,
+.skin-type-selector-container select:focus {
+  border-color: #7f5af0;
+  box-shadow: 0 0 0 2px rgba(127, 90, 240, 0.2);
+  outline: none;
+}
+
+/* Estilo da opção selecionada */
+.skin-type-selector-container select option {
+  padding: 0.5rem;
+  font-size: 0.95rem;
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+  .skin-type-selector-container select {
+    font-size: 0.9rem;
+    padding: 0.4rem 0.6rem;
+  }
+}
 
 .btn-back .arrow { font-size: 1.2rem; transition: transform 0.3s ease; }
 .btn-back:hover .arrow { transform: translateX(-5px); }

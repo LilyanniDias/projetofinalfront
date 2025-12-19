@@ -203,3 +203,89 @@
     padding: 40px 50px;
     /* ... seus outros estilos do card ... */
 }
+/* ROTINAS SALVAS */
+
+.rotinas-salvas {
+  margin-top: 90px;
+  padding-top: 60px;
+  border-top: 1px solid #eee;
+}
+
+.titulo-rotinas {
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  color: #050a24;
+  margin-bottom: 50px;
+}
+
+.rotinas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.rotina-card {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 30px;
+  border: 1px solid #f2f2f2;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.03);
+  transition: 0.3s;
+}
+
+.rotina-card:hover {
+  transform: translateY(-6px);
+}
+
+.rotina-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+  color: #041f6b;
+  margin-bottom: 20px;
+}
+
+.rotina-etapas {
+  font-size: 0.85rem;
+  color: #555;
+}
+
+.rotina-etapas div {
+  margin-bottom: 10px;
+}
+
+.rotina-etapas strong {
+  color: #050a24;
+}
+.acoes-rotina {
+  margin-top: 10px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn-excluir {
+  background: linear-gradient(135deg, #041f6b, #041f6b);
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.btn-excluir:hover {
+  background: linear-gradient(135deg,#041f6b, #041f6b);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
+}
+
+.btn-excluir:active {
+  transform: scale(0.96);
+}
+
+.btn-excluir::before {
+  content: '🗑️ ';
+}

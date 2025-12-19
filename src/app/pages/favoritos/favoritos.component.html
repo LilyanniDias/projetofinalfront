@@ -18,7 +18,7 @@
 <div *ngIf="!isLoading() && listaFavoritos().length === 0" class="empty-state">
   <span class="heart-empty">🤍</span>
   <p>Sua lista de favoritos está vazia.</p>
-  <button [routerLink]="['/ativos-list']" class="btn-explore">Começar a Explorar</button>
+  <button [routerLink]="['/ativos']" class="btn-explore">Começar a Explorar</button>
 </div>
 
 <div class="ativos-grid" *ngIf="!isLoading()">

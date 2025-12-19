@@ -1,34 +1,53 @@
+<!-- Voltar para a página inicial -->
 <div class="back-navigation">
   <a [routerLink]="['/home']" class="btn-back">
     <span class="arrow">&larr;</span> Voltar para o Início
   </a>
 </div>
 
+<!-- Barra de pesquisa -->
 <div class="search-bar-container">
   <input
     type="text"
     placeholder="Pesquisar por nome, função ou origem..."
-    [(ngModel)]="searchTerm" 
-    (ngModelChange)="filtrarAtivos()" 
+    [ngModel]="searchTerm()"
+    (ngModelChange)="searchTerm.set($event); filtrarAtivos()"
     class="search-input"
   />
 </div>
 
+<!-- Seletor de tipo de pele -->
+<div class="skin-type-selector-container">
+  <label for="skinTypeSelect">Selecione o tipo de pele:</label>
+  <select
+    id="skinTypeSelect"
+    [ngModel]="selectedSkinType()"
+    (ngModelChange)="selectedSkinType.set($event); onSkinTypeChange()"
+    class="skin-type-select"
+  >
+    <option value="">Todas as opções</option>
+    <option *ngFor="let tipo of skinTypes" [value]="tipo">{{ tipo }}</option>
+  </select>
+</div>
+
+<!-- Mensagem de erro -->
 <div *ngIf="errorMensagem" class="error-message">
   {{ errorMensagem }}
 </div>
 
+<!-- Mensagem de carregamento -->
 <div *ngIf="ativosRaw().length === 0 && !errorMensagem" class="loading-message">
   Carregando ativos ou lista vazia...
 </div>
 
+<!-- Grid de ativos filtrados -->
 <div class="ativos-grid">
   <div *ngFor="let ativo of ativosFiltrados(); trackBy: trackById" class="ativo-card">
     <h3>{{ ativo.nome }}</h3>
     <div class="card-content">
-        <p><strong>Origem:</strong> {{ ativo.origem_geografica }}</p>
-        <p><strong>Função Principal:</strong> {{ ativo.funcao_principal }}</p>
-        <p><strong>Indicado:</strong> {{ ativo.tipo_de_pele_indicada }}</p>
+      <p><strong>Origem:</strong> {{ ativo.origem_geografica }}</p>
+      <p><strong>Função Principal:</strong> {{ ativo.funcao_principal }}</p>
+      <p><strong>Indicado:</strong> {{ ativo.tipo_de_pele_indicada }}</p>
     </div>
 
     <button (click)="toggleFavorito(ativo)" class="favorite-btn" [class.is-fav]="isFavorito(ativo)">
@@ -37,7 +56,8 @@
     </button>
   </div>
 
+  <!-- Nenhum resultado encontrado -->
   <div *ngIf="ativosRaw().length > 0 && ativosFiltrados().length === 0" class="no-results-message">
-    Nenhum ativo encontrado com o termo "{{ searchTerm() }}".
+    Nenhum ativo encontrado com o termo "{{ searchTerm() }}" e tipo de pele "{{ selectedSkinType() }}".
   </div>
 </div>

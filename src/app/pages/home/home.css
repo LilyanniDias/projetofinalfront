@@ -135,7 +135,7 @@
 /* --- Seção de Recomendados --- */
 .destaques-section {
     padding: 100px 10%;
-    background-color: #fdfcfb; /* Um tom de pérola bem suave */
+    background-color: #f3f5f8; /* Um tom de pérola bem suave */
 }
 
 .section-header {
@@ -288,6 +288,123 @@
 .full-list-link a:active {
     transform: translateY(-1px);
     box-shadow: 0 4px 10px rgba(5, 10, 36, 0.15);
+}
+/* Container de autenticação */
+.auth-controls {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  margin: 1rem 2rem;
+}
+
+/* Botões de link limpo */
+.btn-clean {
+  text-decoration: none;
+  padding: 0.5rem 1.2rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #1a202c;
+  background-color: #f8f9fa;
+  border: 2px solid #1a202c;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.btn-clean:hover {
+  background-color: #1a202c;
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* Botão primário “Criar Conta” */
+.btn-primary-ghost {
+  text-decoration: none;
+  padding: 0.5rem 1.2rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #041f6b;
+  background-color: #fff;
+  border: 2px solid #041f6b;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.btn-primary-ghost:hover {
+  background-color: #041f6b;
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(2, 0, 134, 0.25);
+}
+
+/* Botões principais na hero-section */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  font-size: 1rem;
+  border-radius: 0.75rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+/* Botão primário grande */
+.btn-primary.large {
+  background-color: #041f6b;
+  color: #fff;
+  border: 2px solid #041f6b;
+}
+
+.btn-primary.large:hover {
+  background-color: #041f6b;
+  border-color:#041f6b;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(127,90,240,0.3);
+}
+
+/* Botão secundário grande */
+.btn-secondary.large {
+  background-color: #f8f9fa;
+  color: #1a202c;
+  border: 2px solid #1a202c;
+}
+
+.btn-secondary.large:hover {
+  background-color: #1a202c;
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}
+
+/* Botão de favoritos customizado */
+.btn-fav-custom {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #e02424;
+  border-color: #e02424;
+}
+
+.btn-fav-custom:hover {
+  background-color: #e02424;
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(224,36,36,0.3);
+}
+
+/* Pequena animação para o ícone do coração */
+.heart-icon {
+  font-size: 1.1rem;
+  transition: transform 0.2s ease;
+}
+
+.btn-fav-custom:hover .heart-icon {
+  transform: scale(1.2);
 }
 
 /* Responsividade */
