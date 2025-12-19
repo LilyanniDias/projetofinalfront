@@ -25,7 +25,7 @@ export class HomeComponent implements OnInit {
 
   ativosEmDestaque: Ativo[] = [];
   isLoading: boolean = true;
-  isLoggedIn: boolean = false;
+  isLoggedIn: boolean = true;
   userName: string = 'Visitante';
 
   ngOnInit(): void {

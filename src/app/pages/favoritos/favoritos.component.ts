@@ -1,85 +1,61 @@
-import { Component, OnInit, inject, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, inject, signal, WritableSignal } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { AtivosService, Ativo } from '../../core/ativos/ativos.service';
 import { AuthService } from '../../core/auth/auth.service';
-import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-favoritos',
   standalone: true,
+  imports: [CommonModule, RouterLink],
   templateUrl: './favoritos.component.html',
-  styleUrls: ['./favoritos.component.css'],
-  imports: [
-    CommonModule
-  ]
+  styleUrls: ['./favoritos.component.css']
 })
 export class FavoritosComponent implements OnInit {
-  favoritos: Ativo[] = [];
-  userId: number | null = null;
-  loading = true;
-  error: string | null = null;
   private ativosService = inject(AtivosService);
   private authService = inject(AuthService);
-  private cdr = inject(ChangeDetectorRef);
+
+  // Lista de ativos favoritados
+  listaFavoritos: WritableSignal<Ativo[]> = signal([]);
+  isLoading: WritableSignal<boolean> = signal(true);
+  userId: number | null = null;
 
   ngOnInit(): void {
-    console.log('FavoritosComponent ngOnInit called');
+    // Busca o ID do usuário logado
     this.authService.currentUser$.subscribe(user => {
-      console.log('FavoritosComponent auth subscribe, user:', user);
-      if (!user) {
-        console.log('FavoritosComponent no user, setting error and loading false');
-        this.error = 'Você precisa estar logado para ver seus favoritos.';
-        this.loading = false;
-        this.cdr.detectChanges();
-        return;
+      if (user) {
+        this.userId = user.id;
+        this.carregarFavoritos();
       }
-
-      this.userId = user.id;
-      if (!this.userId) {
-        this.error = 'Não foi possível identificar seu ID de usuário.';
-        this.loading = false;
-        return;
-      }
-
-      this.carregarFavoritos();
     });
   }
 
   carregarFavoritos(): void {
-    console.log('FavoritosComponent carregarFavoritos called, userId:', this.userId);
-    if (!this.userId) {
-      this.error = 'Não foi possível identificar seu ID de usuário.';
-      this.loading = false;
-      return;
-    }
+    if (!this.userId) return;
 
+    this.isLoading.set(true);
     this.ativosService.getFavoritos(this.userId).subscribe({
       next: (data) => {
-        console.log('FavoritosComponent getFavoritos next, data:', data);
-        this.favoritos = data;
-        this.loading = false;
-        console.log('FavoritosComponent loading set to false, favoritos:', this.favoritos);
-        this.cdr.detectChanges();
+        this.listaFavoritos.set(data);
+        this.isLoading.set(false);
       },
       error: (err) => {
-        console.error('FavoritosComponent Erro ao carregar favoritos:', err);
-        this.error = 'Falha ao carregar os favoritos. Tente novamente mais tarde.';
-        this.loading = false;
-        this.cdr.detectChanges();
+        console.error('Erro ao carregar favoritos:', err);
+        this.isLoading.set(false);
       }
     });
   }
 
-  removerFavorito(assetId: number): void {
+  removerDosFavoritos(ativoId: number): void {
     if (!this.userId) return;
 
-    this.ativosService.removeFavorito(this.userId!, assetId).subscribe({
+    this.ativosService.removeFavorito(this.userId, ativoId).subscribe({
       next: () => {
-        this.favoritos = this.favoritos.filter(ativo => ativo.id !== assetId);
+        // Atualiza a lista local removendo o item
+        const novaLista = this.listaFavoritos().filter(a => a.id !== ativoId);
+        this.listaFavoritos.set(novaLista);
       },
-      error: (err) => {
-        console.error('Erro ao remover favorito:', err);
-        this.error = 'Falha ao remover o favorito. Tente novamente.';
-      }
+      error: (err) => console.error('Erro ao remover:', err)
     });
   }
 }

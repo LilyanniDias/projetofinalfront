@@ -14,9 +14,8 @@ export const routes: Routes = [
   { path: 'login', component: LoginComponent, title: 'Login' },
   { path: 'cadastro', component: CadastroComponent, title: 'Cadastro' },
   { path: 'ativos', component: AtivosListComponent, title: 'Explorar Ativos' },
-  { path: 'favoritos', component: FavoritosComponent, canActivate: [authGuard], title: 'Favoritos' },
   { path: 'inteligente-ativos', component: InteligenteAtivosListComponent, title: 'Busca Inteligente de Ativos' },
-
+  { path: 'favoritos', component: FavoritosComponent, canActivate: [authGuard], title: 'Meus Favoritos' },
   {
     path: 'minhas-rotinas',
     component: RotinasComponent,

@@ -1,41 +1,41 @@
 <div class="home-page">
     
     <div class="auth-controls">
-        <div *ngIf="isLoggedIn" class="user-actions">
-            <button (click)="onLogout()" class="btn-clean">Sair da Conta</button>
-        </div>
-        
-        <div *ngIf="!isLoggedIn" class="guest-actions">
-            <a [routerLink]="['/login']" class="btn-clean">Entrar</a>
-            <a [routerLink]="['/cadastro']" class="btn-primary-ghost">Criar Conta</a>
-        </div>
-    </div>
-    
+        <div *ngIf="isLoggedIn" class="user-actions">
+            <button (click)="onLogout()" class="btn-clean">Sair da Conta</button>
+        </div>
+        
+        <div *ngIf="!isLoggedIn" class="guest-actions">
+            <a [routerLink]="['/login']" class="btn-clean">Entrar</a>
+            <a [routerLink]="['/cadastro']" class="btn-primary-ghost">Criar Conta</a>
+        </div>
+    </div>
     
     <header class="hero-section">
-        
         <div class="hero-content-wrapper"> 
-            
             <div class="hero-text-block"> 
-                
                 <span class="welcome-tag">DESCUBRA A BELEZA NATURAL DO BRASIL</span>
                 
                 <h1 *ngIf="isLoggedIn; else guestMessage">
-                    Olá, {{ userName }}! Sua rotina começa aqui.
-                </h1>
-                <ng-template #guestMessage>
-                    <h1>Descubra o Poder dos Ativos Nacionais</h1>
-                </ng-template>
+                    Olá, {{ userName }}! Sua rotina começa aqui.
+                </h1>
+                <ng-template #guestMessage>
+                    <h1>Descubra o Poder dos Ativos Nacionais</h1>
+                </ng-template>
 
-                <p class="tagline">
-                    O PeleNativa ajuda você a montar a rotina de skincare perfeita com foco em ingredientes do Brasil.
-                </p>
+                <p class="tagline">
+                    O PeleNativa ajuda você a montar a rotina de skincare perfeita com foco em ingredientes do Brasil.
+                </p>
 
-                <div class="action-buttons">
-                    <a [routerLink]="['/ativos']" class="btn btn-primary large">Explorar Ativos</a>
-            
-                    <a *ngIf="isLoggedIn" [routerLink]="['/minhas-rotinas']" class="btn btn-secondary large">Minhas Rotinas</a>
-                </div>
+                <div class="action-buttons">
+                    <a [routerLink]="['/ativos']" class="btn btn-primary large">Explorar Ativos</a>
+            
+                    <a *ngIf="isLoggedIn" [routerLink]="['/minhas-rotinas']" class="btn btn-secondary large">Minhas Rotinas</a>
+                    
+                    <a *ngIf="isLoggedIn" [routerLink]="['/favoritos']" class="btn btn-secondary large btn-fav-custom">
+                        <span class="heart-icon">♥</span> Meus Favoritos
+                    </a>
+                </div>
             </div>
             
             <div class="hero-image-block">
@@ -43,37 +43,38 @@
                      alt="Mulher relaxando com tratamento de pele." 
                      class="responsive-hero-image">
             </div>
-
         </div> 
     </header>
+
     <hr>
 
-       <section class="destaques-section">
-    <div class="container">
-        <header class="section-header">
-            <span class="section-tag">RECOMENDAÇÕES</span>
-            <h2>Ativos Mais Populares</h2>
-            <p class="section-description">Conheça os segredos da flora brasileira para sua pele.</p>
-        </header>
+    <section class="destaques-section">
+        <div class="container">
+            <header class="section-header">
+                <span class="section-tag">RECOMENDAÇÕES</span>
+                <h2>Ativos Mais Populares</h2>
+                <p class="section-description">Conheça os segredos da flora brasileira para sua pele.</p>
+            </header>
 
-        <div class="ativos-grid">
-            <div class="ativo-card-estilizado" *ngFor="let ativo of ativosFixos">
-                <div class="card-header">
-                    <h3>{{ ativo.nome }}</h3>
-                </div>
-                <div class="card-body">
-                    <p class="info-tag"><strong>Origem:</strong> {{ ativo.origem }}</p>
-                    <p class="info-tag"><strong>Função:</strong> {{ ativo.funcao }}</p>
-                    <p class="info-tag"><strong>Indicado:</strong> {{ ativo.indicado }}</p>
+            <div class="ativos-grid">
+                <div class="ativo-card-estilizado" *ngFor="let ativo of ativosFixos">
+                    <div class="card-header">
+                        <h3>{{ ativo.nome }}</h3>
+                    </div>
+                    <div class="card-body">
+                        <p class="info-tag"><strong>Origem:</strong> {{ ativo.origem }}</p>
+                        <p class="info-tag"><strong>Função:</strong> {{ ativo.funcao }}</p>
+                        <p class="info-tag"><strong>Indicado:</strong> {{ ativo.indicado }}</p>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div class="full-list-link">
-            <a [routerLink]="['/ativos']">
-                Explorar catálogo completo 
-                <span class="arrow">&rarr;</span>
-            </a>
+            <div class="full-list-link">
+                <a [routerLink]="['/ativos']">
+                    Explorar catálogo completo 
+                    <span class="arrow">&rarr;</span>
+                </a>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
+</div>

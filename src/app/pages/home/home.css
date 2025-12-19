@@ -97,6 +97,22 @@
     color: white;
 }
 
+/* ACRESCENTADO: Estilo específico para o ícone e alinhamento do botão de favoritos */
+.btn-fav-custom {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.heart-icon {
+    color: #e74c3c; /* Vermelho suave para o coração */
+    transition: color 0.2s;
+}
+
+.btn-secondary.large:hover .heart-icon {
+    color: white; /* O coração fica branco quando o botão preenche de verde no hover */
+}
+
 /* MEDIA QUERY (Responsividade para Mobile) */
 @media (max-width: 900px) {
     .hero-content-wrapper {

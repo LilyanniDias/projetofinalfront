@@ -23,12 +23,16 @@
 </div>
 
 <div class="ativos-grid">
-  <div *ngFor="let ativo of ativosFiltrados()" class="ativo-card">
+  <div *ngFor="let ativo of ativosFiltrados(); trackBy: trackById" class="ativo-card">
     <h3>{{ ativo.nome }}</h3>
-    <p><strong>Origem:</strong> {{ ativo.origem_geografica }}</p>
-    <p><strong>Função Principal:</strong> {{ ativo.funcao_principal }}</p>
-    <p><strong>Indicado:</strong> {{ ativo.tipo_de_pele_indicada }}</p>
-    <button (click)="toggleFavorito(ativo)" class="favorite-btn">
+    <div class="card-content">
+        <p><strong>Origem:</strong> {{ ativo.origem_geografica }}</p>
+        <p><strong>Função Principal:</strong> {{ ativo.funcao_principal }}</p>
+        <p><strong>Indicado:</strong> {{ ativo.tipo_de_pele_indicada }}</p>
+    </div>
+
+    <button (click)="toggleFavorito(ativo)" class="favorite-btn" [class.is-fav]="isFavorito(ativo)">
+      <span class="heart-icon">{{ isFavorito(ativo) ? '❤️' : '🤍' }}</span>
       {{ isFavorito(ativo) ? 'Remover dos Favoritos' : 'Adicionar aos Favoritos' }}
     </button>
   </div>
